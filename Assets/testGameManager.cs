@@ -18,7 +18,6 @@ public class testGameManager : MonoBehaviourPun
     void Start()
     {
         int playerNum = PhotonNetwork.CurrentRoom.PlayerCount;
-        playerNum+=3;
         PhotonNetwork.Instantiate(playerNum+"_head", startPositions[playerNum - 1], Quaternion.identity, 0);
 
     }

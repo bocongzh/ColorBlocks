@@ -21,7 +21,7 @@ public class collision : MonoBehaviourPun
     {
         string currentObj = transform.name;
         string collidObj = collision.name;
-
+        Debug.Log(currentObj + " " + collidObj);
         if (currentObj.Contains("tail") && collidObj.Contains("head"))
         {
             PhotonNetwork.LeaveRoom();

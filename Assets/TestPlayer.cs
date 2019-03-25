@@ -306,58 +306,58 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
         {
             return;
         }
-        //float x = collision.transform.position.x;
-        //float y = collision.transform.position.y;
-        //if (x == startPoint.x && y == startPoint.y)
-        //{
-        //    Debug.Log("Start Point");
-        //}
-        //else
-        //{
-        //    Vector2 position = collision.transform.position;
-        //    if (domain.ContainsKey(position))
-        //    {
-        //        //collide domain
-        //        //Debug.Log("collide domain");
-        //        if (!inDomain)
-        //        {
-        //            //first collide domain
-        //            endPoint = (Vector2)collision.transform.position;
-        //            inDomain = true;
-        //            Debug.Log("first collide domain");
+        float x = collision.transform.position.x;
+        float y = collision.transform.position.y;
+        if (x == startPoint.x && y == startPoint.y)
+        {
+            Debug.Log("Start Point");
+        }
+        else
+        {
+            Vector2 position = collision.transform.position;
+            if (domain.ContainsKey(position))
+            {
+                //collide domain
+                //Debug.Log("collide domain");
+                if (!inDomain)
+                {
+                    //first collide domain
+                    endPoint = (Vector2)collision.transform.position;
+                    inDomain = true;
+                    Debug.Log("first collide domain");
 
-        //            fill();
+                    fill();
    
-        //        }
-        //        else
-        //        {
-        //            //head is in domain
-        //        }
-        //    }
-        //    else if (tail.ContainsKey(position) && (GameObject)tail[position] != curObj || IsOutOfBounds(position))
-        //    {
-        //        //collide tail
-        //        Debug.Log("collide tail");
-        //        foreach (Vector2 k in domain.Keys)
-        //        {
-        //            PhotonNetwork.Destroy((GameObject)domain[k]);
-        //            //domain.Remove(k);
-        //        }
-        //        domain.Clear();
-        //        //key = tail.Keys;
-        //        foreach (Vector2 k in tail.Keys)
-        //        {
-        //            PhotonNetwork.Destroy((GameObject)tail[k]);
-        //        }
-        //        tail.Clear();
-        //        PhotonNetwork.Destroy(photonView);
-        //    }
-        //    else
-        //    {
-        //        //collide border
-        //    }
-        //}
-        //Debug.Log("Collid:" + collision.name);
+                }
+                else
+                {
+                    //head is in domain
+                }
+            }
+            else if (tail.ContainsKey(position) && (GameObject)tail[position] != curObj || IsOutOfBounds(position))
+            {
+                //collide tail
+                Debug.Log("collide tail");
+                foreach (Vector2 k in domain.Keys)
+                {
+                    PhotonNetwork.Destroy((GameObject)domain[k]);
+                    //domain.Remove(k);
+                }
+                domain.Clear();
+                //key = tail.Keys;
+                foreach (Vector2 k in tail.Keys)
+                {
+                    PhotonNetwork.Destroy((GameObject)tail[k]);
+                }
+                tail.Clear();
+                PhotonNetwork.Destroy(photonView);
+            }
+            else
+            {
+                //collide border
+            }
+        }
+        Debug.Log("Collid:" + collision.name);
     }
 
     private void fill()
@@ -374,6 +374,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (!domain.ContainsKey(k))
             {
+                ((GameObject)tail[k]).name = id + "_domain";
                 domain.Add(k, tail[k]);
             }
         }
