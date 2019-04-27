@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dada181c11bb3df48bb673d3f6b57993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.3
   photonView: {fileID: 2073290002274690411}
   body: {fileID: 6047044818898672558, guid: e542775186abb43489e3f1fbbed9b646, type: 3}
 --- !u!61 &2073290002274690734

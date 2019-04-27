@@ -21,10 +21,19 @@ public class collision : MonoBehaviourPun
     {
         string currentObj = transform.name;
         string collidObj = collision.name;
-        Debug.Log(currentObj + " " + collidObj);
-        if (currentObj.Contains("body") && collidObj.Contains("head"))
+        int id1 = currentObj.ToCharArray()[0] - '0';
+        int id2 = collidObj.ToCharArray()[0] - '0';
+        //Debug.Log(currentObj + " " + collidObj);
+        Debug.Log("current:" + currentObj);
+        Debug.Log("collid:" + collidObj);
+        if (id1==id2&&currentObj.Contains("body") && collidObj.Contains("head"))
         {
             PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            PhotonNetwork.LeaveRoom();
+
         }
     }
 }

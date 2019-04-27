@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dada181c11bb3df48bb673d3f6b57993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.3
   photonView: {fileID: 8107972171954917488}
   body: {fileID: 4170564744110565376, guid: 9aca7178543e6485894e45865a86da81, type: 3}
 --- !u!61 &8107972171954918325

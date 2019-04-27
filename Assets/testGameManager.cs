@@ -12,7 +12,7 @@ public class testGameManager : MonoBehaviourPun
     //public GameObject player;
     //public GameObject body;
 
-    Vector3[] startPositions = { new Vector3(-12f, 9f, 0f), new Vector3(23f, 9f, 0f), new Vector3(-12f, -9f, 0f), new Vector3(23f, -9f, 0f) };
+    Vector3[] startPositions = { new Vector3(-12f, 9f, -1f), new Vector3(23f, 9f, -1f), new Vector3(-12f, -9f, -1f), new Vector3(23f, -9f, -1f) };
 
     // Start is called before the first frame update
     void Start()

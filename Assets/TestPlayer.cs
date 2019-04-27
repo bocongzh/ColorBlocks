@@ -6,7 +6,7 @@ using System;
 
 public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public float speed = 1f;
+    public float speed = 0.1f;
     public PhotonView photonView;
     public GameObject body;
 
