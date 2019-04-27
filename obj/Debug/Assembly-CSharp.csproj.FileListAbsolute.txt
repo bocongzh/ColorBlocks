@@ -944,3 +944,7 @@ C:/Users/DellPC/Desktop/526_ColorBlocks/obj/Debug/Assembly-CSharp.pdb
 /Users/lostabaddon/Downloads/games_setup/Github/526/photon3/csci526/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/lostabaddon/Downloads/games_setup/Github/526/photon3/csci526/obj/Debug/Assembly-CSharp.dll
 /Users/lostabaddon/Downloads/games_setup/Github/526/photon3/csci526/obj/Debug/Assembly-CSharp.pdb
+/Users/zhoubc/Desktop/csci526/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+/Users/zhoubc/Desktop/csci526/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
+/Users/zhoubc/Desktop/csci526/obj/Debug/Assembly-CSharp.dll
+/Users/zhoubc/Desktop/csci526/obj/Debug/Assembly-CSharp.pdb
