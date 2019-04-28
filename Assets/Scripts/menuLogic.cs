@@ -8,6 +8,7 @@ public class menuLogic : MonoBehaviour
 
     public void disableMenuUI()
     {
-        PhotonNetwork.LoadLevel("Test");
+        //PhotonNetwork.LoadLevel("FreeModel");
+        PhotonNetwork.LoadLevel("GoalModel0");
     }
 }

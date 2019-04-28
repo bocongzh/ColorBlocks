@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4656839673547086030}
   - component: {fileID: 4656839673547086036}
   - component: {fileID: 4656839673547086603}
+  - component: {fileID: 3939368505611542400}
   m_Layer: 0
   m_Name: 2_head
   m_TagString: Untagged
@@ -111,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4656839673547086170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4656839673547086287}
@@ -181,6 +182,8 @@ MonoBehaviour:
   speed: 0.3
   photonView: {fileID: 4656839673547086603}
   body: {fileID: 1884080003196867179, guid: b92470440f89646b68b6583d1df9f9cf, type: 3}
+  tailObject: {fileID: 2358173943502111896, guid: 95edd4475d4df3e4c8240f183ccf93ba,
+    type: 3}
 --- !u!61 &4656839673547086030
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -243,10 +246,25 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 0
+  Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 3939368505611542400}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
+--- !u!114 &3939368505611542400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656839673547086170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0

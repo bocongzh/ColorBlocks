@@ -9,6 +9,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
     public float speed = 0.1f;
     public PhotonView photonView;
     public GameObject body;
+    public GameObject tailObject;
 
     private static Vector2 dir = Vector2.right;
     int id = 0;
@@ -164,8 +165,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
                 startPoint = vector;
             }
             inDomain = false;
-            GameObject trace = PhotonNetwork.Instantiate(body.name, vector, Quaternion.identity, 0);
-            trace.name = id + "_tail";
+            GameObject trace = PhotonNetwork.Instantiate(tailObject.name, vector, Quaternion.identity, 0);
             curObj = trace;
             //trace.GetComponent<Renderer>().material.color = color;
             tail.Add(vector, trace);
@@ -279,7 +279,6 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
                 Vector2 coordPoint = filledStack.Pop();
                 //GameObject body = Instantiate(tailPrefab, coordPoint, Quaternion.identity);
                 GameObject d = PhotonNetwork.Instantiate(body.name, coordPoint, Quaternion.identity, 0);
-                d.name = id + "_domain";
                 // d.GetComponent<Renderer>().material.color = color;
                 domain.Add(coordPoint, d);
             }
@@ -310,7 +309,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
         float y = collision.transform.position.y;
         if (x == startPoint.x && y == startPoint.y)
         {
-            Debug.Log("Start Point");
+            //Debug.Log("Start Point");
         }
         else
         {
@@ -324,7 +323,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
                     //first collide domain
                     endPoint = (Vector2)collision.transform.position;
                     inDomain = true;
-                    Debug.Log("first collide domain");
+                    //Debug.Log("first collide domain");
 
                     fill();
    
@@ -337,7 +336,23 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
             else if (tail.ContainsKey(position) && (GameObject)tail[position] != curObj || IsOutOfBounds(position))
             {
                 //collide tail
-                Debug.Log("collide tail");
+                //Debug.Log("collide tail");
+                foreach (Vector2 k in domain.Keys)
+                {
+                    PhotonNetwork.Destroy((GameObject)domain[k]);
+                    //domain.Remove(k);
+                }
+                domain.Clear();
+                //key = tail.Keys;
+                foreach (Vector2 k in tail.Keys)
+                {
+                    PhotonNetwork.Destroy((GameObject)tail[k]);
+                }
+                tail.Clear();
+                PhotonNetwork.Destroy(photonView);
+            }
+            else if (collision.name.Contains("border"))
+            {
                 foreach (Vector2 k in domain.Keys)
                 {
                     PhotonNetwork.Destroy((GameObject)domain[k]);
@@ -357,7 +372,6 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
                 //collide border
             }
         }
-        Debug.Log("Collid:" + collision.name);
     }
 
     private void fill()
@@ -374,8 +388,9 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (!domain.ContainsKey(k))
             {
-                ((GameObject)tail[k]).name = id + "_domain";
                 domain.Add(k, tail[k]);
+                PhotonNetwork.Destroy((GameObject)tail[k]);
+                GameObject d = PhotonNetwork.Instantiate(body.name, k, Quaternion.identity, 0);
             }
         }
         tail.Clear();
@@ -405,7 +420,6 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
             {
                 Vector2 v = new Vector2(vector.x - i, vector.y + 1 - j);
                 GameObject d = PhotonNetwork.Instantiate(body.name, v, Quaternion.identity, 0);
-                d.name = id + "_domain";
                 // d.GetComponent<Renderer>().material.color = color;
                 if (!domain.ContainsKey(v))
                 {

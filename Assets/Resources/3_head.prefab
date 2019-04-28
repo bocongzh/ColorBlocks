@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2073290002274690734}
   - component: {fileID: 2073290002274690740}
   - component: {fileID: 2073290002274690411}
+  - component: {fileID: 4497335200226594100}
   m_Layer: 0
   m_Name: 3_head
   m_TagString: Untagged
@@ -111,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073290002274690874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2073290002274690991}
@@ -181,6 +182,8 @@ MonoBehaviour:
   speed: 0.3
   photonView: {fileID: 2073290002274690411}
   body: {fileID: 6047044818898672558, guid: e542775186abb43489e3f1fbbed9b646, type: 3}
+  tailObject: {fileID: 2064380267408659925, guid: 5bcee34b7bfef154bbeb5437519d7a46,
+    type: 3}
 --- !u!61 &2073290002274690734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -243,10 +246,25 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 0
+  Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 4497335200226594100}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
+--- !u!114 &4497335200226594100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073290002274690874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0

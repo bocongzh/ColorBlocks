@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 76858998015eb864f8334107d507a4ab
   - enabled: 1
-    path: Assets/Scenes/Test.unity
+    path: Assets/Scenes/FreeModel.unity
     guid: 206f0e979870d694e9843d5d95ca0023
+  - enabled: 1
+    path: Assets/Scenes/GoalModel0.unity
+    guid: 713a5adf8b8fe9449a94aad3fb17eff5
   m_configObjects: {}

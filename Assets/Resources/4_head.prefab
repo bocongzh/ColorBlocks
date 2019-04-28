@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7927793187858488393}
   - component: {fileID: 7927793187858488403}
   - component: {fileID: 7927793187858489228}
+  - component: {fileID: 8617069236530205519}
   m_Layer: 0
   m_Name: 4_head
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7927793187858488797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7927793187858488648}
@@ -99,6 +100,8 @@ MonoBehaviour:
   speed: 0.3
   photonView: {fileID: 7927793187858489228}
   body: {fileID: 2896352681936359841, guid: 759af74fa65da4e4789b7df59d70ef47, type: 3}
+  tailObject: {fileID: 5068579670625259027, guid: ea951042c2bb2c744a8170238bcd4274,
+    type: 3}
 --- !u!61 &7927793187858488393
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,13 +164,28 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 0
+  Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 8617069236530205519}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
+--- !u!114 &8617069236530205519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7927793187858488797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &7927793187858488798
 GameObject:
   m_ObjectHideFlags: 0

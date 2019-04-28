@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System;
+using System.Reflection;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class collision : MonoBehaviourPun
 {
@@ -26,14 +32,18 @@ public class collision : MonoBehaviourPun
         //Debug.Log(currentObj + " " + collidObj);
         Debug.Log("current:" + currentObj);
         Debug.Log("collid:" + collidObj);
-        if (id1==id2&&currentObj.Contains("body") && collidObj.Contains("head"))
+        if (collidObj.Contains("head"))
         {
-            PhotonNetwork.LeaveRoom();
-        }
-        else
+            GameObject[] objects = SceneManager.GetSceneByName("FreeModel").GetRootGameObjects();
+            char id = currentObj.ToCharArray()[0];
+            if (objects[8].name.ToCharArray()[0] == id)
+            {
+                PhotonNetwork.LeaveRoom();
+            }
+        } else
         {
-            PhotonNetwork.LeaveRoom();
 
         }
+       
     }
 }

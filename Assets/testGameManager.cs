@@ -28,4 +28,10 @@ public class testGameManager : MonoBehaviourPun
         
     }
 
+    public void backToMenu()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel("Menu");
+    }
+
 }
