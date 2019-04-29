@@ -406,6 +406,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
         tail.Clear();
+        Debug.Log("Scene Name" + sceneName);
         if (sceneName.Contains("Goal"))
         {
             Vector2 v = new Vector2(4, 0);

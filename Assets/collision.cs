@@ -29,14 +29,28 @@ public class collision : MonoBehaviourPun
         string collidObj = collision.name;
         int id1 = currentObj.ToCharArray()[0] - '0';
         int id2 = collidObj.ToCharArray()[0] - '0';
-        //Debug.Log(currentObj + " " + collidObj);
-        Debug.Log("current:" + currentObj);
-        Debug.Log("collid:" + collidObj);
+        //Debug.Log("current:" + currentObj);
+        //Debug.Log("collid:" + collidObj);
         if (collidObj.Contains("head"))
         {
-            GameObject[] objects = SceneManager.GetSceneByName("FreeModel").GetRootGameObjects();
+            string sceneName = SceneManager.GetActiveScene().name;
+            GameObject[] objects = SceneManager.GetActiveScene().GetRootGameObjects();
+            int index = 0;
+            if (sceneName.Contains("FreeModel"))
+            {
+                index = 8;
+            } else if (sceneName.Contains("GoalModel0"))
+            {
+                index = 13;
+            } else if (sceneName.Contains("GoalModel1"))
+            {
+                index = 15;
+            } else if (sceneName.Contains("GoalModel2"))
+            {
+                index = 30;
+            }
             char id = currentObj.ToCharArray()[0];
-            if (objects[8].name.ToCharArray()[0] == id)
+            if (objects[index].name.ToCharArray()[0] == id)
             {
                 PhotonNetwork.LeaveRoom();
                 PhotonNetwork.LoadLevel("GameOver_Lose");
