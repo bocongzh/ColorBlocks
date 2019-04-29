@@ -47,7 +47,7 @@ public class collision : MonoBehaviourPun
                 index = 15;
             } else if (sceneName.Contains("GoalModel2"))
             {
-                index = 30;
+                index = 25;
             }
             char id = currentObj.ToCharArray()[0];
             if (objects[index].name.ToCharArray()[0] == id)
