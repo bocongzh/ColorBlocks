@@ -14,6 +14,8 @@ public class menuLogic : MonoBehaviour
         {
             case 0: PhotonNetwork.LoadLevel("FreeModel");break;
             case 1: PhotonNetwork.LoadLevel("GoalModel0");break;
+            case 2: PhotonNetwork.LoadLevel("GoalModel1"); break;
+            case 3: PhotonNetwork.LoadLevel("GoalModel2"); break;
         }
     }
 }

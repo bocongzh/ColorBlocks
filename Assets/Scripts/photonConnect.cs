@@ -34,11 +34,25 @@ public class photonConnect : MonoBehaviourPunCallbacks
         logic.id = 0;
     }
 
-    public void chooseGoal()
+    public void chooseGoal1()
     {
         sectionView3.SetActive(false);
         sectionView2.SetActive(true);
         logic.id = 1;
+    }
+
+    public void chooseGoal2()
+    {
+        sectionView3.SetActive(false);
+        sectionView2.SetActive(true);
+        logic.id = 2;
+    }
+
+    public void chooseGoal3()
+    {
+        sectionView3.SetActive(false);
+        sectionView2.SetActive(true);
+        logic.id = 3;
     }
 
 }
