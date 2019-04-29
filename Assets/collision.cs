@@ -39,6 +39,7 @@ public class collision : MonoBehaviourPun
             if (objects[8].name.ToCharArray()[0] == id)
             {
                 PhotonNetwork.LeaveRoom();
+                PhotonNetwork.LoadLevel("GameOver_Lose");
             }
         } else
         {
