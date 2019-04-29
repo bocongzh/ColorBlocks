@@ -94,6 +94,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
         if (playerNum > 1) endGame = true;
         if (playerNum == 1 && endGame)
         {
+            PhotonNetwork.Destroy(photonView);
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LoadLevel("GameOver_Win");
         }
@@ -381,6 +382,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
         }
         tail.Clear();
         PhotonNetwork.Destroy(photonView);
+        PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("GameOver_Lose");
     }
 
@@ -409,7 +411,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
             Vector2 v = new Vector2(4, 0);
             if (domain.Contains(v))
             {
-                //PhotonNetwork.Destroy(photonView);
+                PhotonNetwork.Destroy(photonView);
                 PhotonNetwork.LeaveRoom();
                 PhotonNetwork.LoadLevel("GameOver_Win");
             }
