@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BackToMenu.cs" />
     <Compile Include="Assets\BodyPlayer.cs" />
     <Compile Include="Assets\collision.cs" />
     <Compile Include="Assets\GoalPlayer.cs" />
