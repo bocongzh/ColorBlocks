@@ -68,7 +68,12 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
                 transform.position = new Vector2(x, y);
             }
 
-            InvokeRepeating("Move", speed, speed);
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 4)
+            {
+                InvokeRepeating("Move", speed, speed);
+            }
+
+
         }
 
     }
@@ -406,7 +411,7 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
         tail.Clear();
-        Debug.Log("Scene Name" + sceneName);
+        Debug.Log("Scene Name: " + sceneName);
         if (sceneName.Contains("Goal"))
         {
             Vector2 v = new Vector2(4, 0);

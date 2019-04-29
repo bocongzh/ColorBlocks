@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{F8A40E93-46AC-D1D7-55D0-52D145A0512E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/photonConnect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/testGameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/menuLogic.cs" Line="11" Column="32" />
-      <File FileName="Assets/collision.cs" Line="44" Column="15" />
-      <File FileName="Assets/TestPlayer.cs" Line="386" Column="9" />
-      <File FileName="Assets/Scripts/photonConnect.cs" Line="37" Column="28" />
+      <File FileName="Assets/Scripts/menuLogic.cs" Line="18" Column="56" />
+      <File FileName="Assets/collision.cs" Line="50" Column="27" />
+      <File FileName="Assets/TestPlayer.cs" Line="283" Column="38" />
+      <File FileName="Assets/Scripts/photonConnect.cs" Line="27" Column="14" />
+      <File FileName="Assets/testGameManager.cs" Line="20" Column="59" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
