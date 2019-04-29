@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{F8A40E93-46AC-D1D7-55D0-52D145A0512E}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TestPlayer.cs">
     <Files>
-      <File FileName="Assets/collision.cs" Line="22" Column="9" />
-      <File FileName="Assets/testGameManager.cs" Line="31" Column="2" />
-      <File FileName="Assets/TestPlayer.cs" Line="7" Column="67" />
+      <File FileName="Assets/collision.cs" Line="22" Column="6" />
+      <File FileName="Assets/testGameManager.cs" Line="20" Column="63" />
+      <File FileName="Assets/TestPlayer.cs" Line="413" Column="57" />
       <File FileName="Assets/BodyPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/menuLogic.cs" Line="12" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

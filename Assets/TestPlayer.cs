@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System;
+using UnityEngine.SceneManagement;
 
 public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -33,6 +34,13 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
     Vector2 startPoint;
     Vector2 endPoint;
 
+    bool endGame = false;
+    private string sceneName;
+
+    private void OnGUI()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +88,15 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
             dir = Vector2.up;
         else if (Input.GetKey(KeyCode.DownArrow) && dir != Vector2.up)
             dir = Vector2.down;
+
+
+        int playerNum = PhotonNetwork.CurrentRoom.PlayerCount;
+        if (playerNum > 1) endGame = true;
+        if (playerNum == 1 && endGame)
+        {
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LoadLevel("GameOver_Win");
+        }
     }
 
     public static int getCount()
@@ -336,42 +353,35 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
             else if (tail.ContainsKey(position) && (GameObject)tail[position] != curObj || IsOutOfBounds(position))
             {
                 //collide tail
-                //Debug.Log("collide tail");
-                foreach (Vector2 k in domain.Keys)
-                {
-                    PhotonNetwork.Destroy((GameObject)domain[k]);
-                    //domain.Remove(k);
-                }
-                domain.Clear();
-                //key = tail.Keys;
-                foreach (Vector2 k in tail.Keys)
-                {
-                    PhotonNetwork.Destroy((GameObject)tail[k]);
-                }
-                tail.Clear();
-                PhotonNetwork.Destroy(photonView);
+                gameover();
             }
             else if (collision.name.Contains("border"))
             {
-                foreach (Vector2 k in domain.Keys)
-                {
-                    PhotonNetwork.Destroy((GameObject)domain[k]);
-                    //domain.Remove(k);
-                }
-                domain.Clear();
-                //key = tail.Keys;
-                foreach (Vector2 k in tail.Keys)
-                {
-                    PhotonNetwork.Destroy((GameObject)tail[k]);
-                }
-                tail.Clear();
-                PhotonNetwork.Destroy(photonView);
+                gameover();
             }
             else
             {
-                //collide border
+                //other conditions
             }
         }
+    }
+
+    private void gameover()
+    {
+        foreach (Vector2 k in domain.Keys)
+        {
+            PhotonNetwork.Destroy((GameObject)domain[k]);
+            //domain.Remove(k);
+        }
+        domain.Clear();
+        //key = tail.Keys;
+        foreach (Vector2 k in tail.Keys)
+        {
+            PhotonNetwork.Destroy((GameObject)tail[k]);
+        }
+        tail.Clear();
+        PhotonNetwork.Destroy(photonView);
+        PhotonNetwork.LoadLevel("GameOver_Lose");
     }
 
     private void fill()
@@ -394,6 +404,16 @@ public class TestPlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
         tail.Clear();
+        if (sceneName.Contains("Goal"))
+        {
+            Vector2 v = new Vector2(4, 0);
+            if (domain.Contains(v))
+            {
+                //PhotonNetwork.Destroy(photonView);
+                PhotonNetwork.LeaveRoom();
+                PhotonNetwork.LoadLevel("GameOver_Win");
+            }
+        }
         //pairPoint.Clear();
     }
 
