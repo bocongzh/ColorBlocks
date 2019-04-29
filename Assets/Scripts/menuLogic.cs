@@ -6,9 +6,14 @@ using Photon.Pun;
 public class menuLogic : MonoBehaviour
 {
 
+    public int id;
+
     public void disableMenuUI()
     {
-        //PhotonNetwork.LoadLevel("FreeModel");
-        PhotonNetwork.LoadLevel("GoalModel0");
+        switch (id)
+        {
+            case 0: PhotonNetwork.LoadLevel("FreeModel");break;
+            case 1: PhotonNetwork.LoadLevel("GoalModel0");break;
+        }
     }
 }

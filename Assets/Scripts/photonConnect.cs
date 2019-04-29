@@ -6,7 +6,8 @@ using Photon.Realtime;
 
 public class photonConnect : MonoBehaviourPunCallbacks
 {
-    public GameObject sectionView1, sectionView2;
+    public GameObject sectionView1, sectionView2, sectionView3;
+    public menuLogic logic;
 
     public void connectToPhoton()
     {
@@ -22,8 +23,22 @@ public class photonConnect : MonoBehaviourPunCallbacks
         Debug.Log("OnConnectedToMaster() was called by PUN.");
 
         sectionView1.SetActive(false);
-        sectionView2.SetActive(true);
+        sectionView3.SetActive(true);
         //PhotonNetwork.JoinRandomRoom();
+    }
+
+    public void chooseFree()
+    {
+        sectionView3.SetActive(false);
+        sectionView2.SetActive(true);
+        logic.id = 0;
+    }
+
+    public void chooseGoal()
+    {
+        sectionView3.SetActive(false);
+        sectionView2.SetActive(true);
+        logic.id = 1;
     }
 
 }
